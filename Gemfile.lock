@@ -1,3 +1,18 @@
+GIT
+  remote: https://github.com/alphagov/govuk_publishing_components.git
+  revision: 08b6658c340a24c7aff8ca97099b2f68b503c736
+  branch: dart-sass-test
+  specs:
+    govuk_publishing_components (35.21.2)
+      govuk_app_config
+      govuk_personalisation (>= 0.7.0)
+      kramdown
+      plek
+      rails (>= 6)
+      rouge
+      sprockets (>= 3)
+      sprockets-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -773,7 +788,7 @@ DEPENDENCIES
   govuk_ab_testing
   govuk_app_config
   govuk_document_types
-  govuk_publishing_components
+  govuk_publishing_components!
   govuk_schemas
   govuk_test
   i18n-coverage
