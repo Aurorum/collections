@@ -801,6 +801,7 @@ DEPENDENCIES
   simplecov-rcov
   slimmer
   sprockets-rails
+  terser
   timecop
   uglifier
   unparser
