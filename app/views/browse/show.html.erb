@@ -20,7 +20,7 @@
   } %>
 <% end %>
 
-<%= render "shared/browse_header", { margin_bottom: page.slug == "benefits" ? 7 : 9 } do %>
+<%= render "shared/browse_header", { margin_bottom: [ "benefits", "business" ].include?(page.slug) ? 7 : 9 } do %>
   <h1 class="browse__heading govuk-heading-xl">
     <%= page.title %>
   </h1>
@@ -31,17 +31,24 @@
   } %>
 <% end %>
 
-<% if page.slug == "benefits" %>
+<% if [ "benefits", "business" ].include?(page.slug) %>
   <div class="govuk-width-container">
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-        <%= render "govuk_publishing_components/components/action_link", {
-          text: t("browse.check_benefits_and_financial_support"),
-          href: "/check-benefits-financial-support",
-          dark_large_icon: true,
-          margin_bottom: 7,
-        } %>
-      </div>
+      <% if page.slug == "benefits" %>
+        <div class="govuk-grid-column-full">
+          <%= render "shared/browse_action_link", locals: { text: t("browse.check_benefits_and_financial_support"), href: "/check-benefits-financial-support" } %>
+        </div>
+      <% elsif page.slug == "business" %>
+        <div class="govuk-grid-column-one-third">
+          <%= render "shared/browse_action_link", locals: { text: t("browse.file_your_self_assessment"), href: "/log-in-file-self-assessment-tax-return" } %>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <%= render "shared/browse_action_link", locals: { text: t("browse.pay_your_self_assessment_tax_bill"), href: "/pay-self-assessment-tax-bill" } %>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <%= render "shared/browse_action_link", locals: { text: t("browse.employing_people"), href: "/browse/employing-people" } %>
+        </div>
+      <% end%>
     </div>
   </div>
 <% end %>
